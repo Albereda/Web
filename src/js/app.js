@@ -8,7 +8,13 @@ const STORAGE_KEY = 'shopping_list_v1';
 function loadData() {
     const data = localStorage.getItem(STORAGE_KEY);
     if (data) {
-        items = JSON.parse(data);
+        try {
+            items = JSON.parse(data);
+        } catch (e) {
+            console.error('Error parsing stored data', e);
+            items = [];
+            saveData();
+        }
     }
 }
 
@@ -92,6 +98,10 @@ function clearList() {
 
 // Actualizar gráfica
 function updateChart() {
+    if (typeof Chart === 'undefined') {
+        return;
+    }
+
     const dataMap = {};
     items.forEach(item => {
         if (!dataMap[item.name]) {
