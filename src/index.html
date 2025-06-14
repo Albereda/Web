@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lista de la compra</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <main class="container">
+        <h1>Lista de la compra</h1>
+        <section class="controls">
+            <form id="product-form">
+                <input type="text" id="product-name" placeholder="Producto" required>
+                <input type="number" id="product-qty" placeholder="Cantidad" min="1" required>
+                <button type="submit">Añadir</button>
+            </form>
+            <button id="clear-btn" class="danger">Limpiar lista</button>
+            <input type="text" id="search" placeholder="Buscar...">
+            <div class="sort">
+                <label>Ordenar por:</label>
+                <select id="sort-by">
+                    <option value="name">Nombre</option>
+                    <option value="qty">Cantidad</option>
+                </select>
+            </div>
+        </section>
+
+        <section>
+            <table id="product-table">
+                <thead>
+                    <tr>
+                        <th>Comprado</th>
+                        <th>Producto</th>
+                        <th>Cantidad</th>
+                        <th>Acciones</th>
+                    </tr>
+                </thead>
+                <tbody>
+                </tbody>
+            </table>
+        </section>
+
+        <section>
+            <h2>Productos más añadidos</h2>
+            <canvas id="chart" width="400" height="200"></canvas>
+        </section>
+    </main>
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="js/app.js"></script>
+</body>
+</html>
